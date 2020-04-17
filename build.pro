@@ -90,9 +90,6 @@ core_ios:CONFIG += no_tests
 }
 
 core_and_multimedia {
-SUBDIRS += \
-	videoplayer
-}
 	
 desktop {
 message(desktop)
@@ -162,7 +159,6 @@ ordered {
 	removeFile($$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/lib/Makefile.ascdocumentscore$$PRO_SUFFIX)
 	removeFile($$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/lib/Makefile.ascdocumentscore_helper$$PRO_SUFFIX)
 	removeFile($$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/lib/qt_wrapper/Makefile.qtascdocumentscore$$PRO_SUFFIX)
-	removeFile($$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/videoplayerlib/Makefile.videoplayerlib$$PRO_SUFFIX)
 	removeFile($$ROOT_DIR/desktop-apps/win-linux/extras/projicons/Makefile.ProjIcons$$PRO_SUFFIX)
 	removeFile($$ROOT_DIR/desktop-apps/win-linux/Makefile.ASCDocumentEditor$$PRO_SUFFIX)
 }
@@ -276,8 +272,6 @@ desktop {
 	}
 		
 	core_and_multimedia {
-		videoplayer.file         = $$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/videoplayerlib/videoplayerlib.pro
-		videoplayer.makefile     = $$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/videoplayerlib/Makefile.videoplayerlib$$PRO_SUFFIX
 	}
 	
 	!no_desktop_apps {
@@ -316,15 +310,9 @@ desktop {
 	ooxmlsignature.depends    = kernel unicodeconverter graphics
 	documentscore.depends     = kernel unicodeconverter graphics hunspell ooxmlsignature htmlrenderer pdfwriter pdfreader djvufile xpsfile
 	documentscore_helper.depends    = documentscore
-	videoplayer.depends       		= kernel unicodeconverter graphics
 
 	!core_mac {
 		qtdocumentscore.depends 	= documentscore
-	}
-	
-	!no_desktop_apps {
-		core_windows:projicons.depends  = documentscore videoplayer
-		desktopapp.depends              = documentscore videoplayer
 	}
 }
 
