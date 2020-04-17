@@ -25,12 +25,6 @@ OO_BRANDING_SUFFIX = $$(OO_BRANDING)
 
 CONFIG += ordered
 
-core_windows {
-	CONFIG += core_and_multimedia
-}
-core_linux {
-	CONFIG += core_and_multimedia
-}
 core_mac {
 	CONFIG += no_use_htmlfileinternal
 	CONFIG += no_desktop_apps
@@ -89,25 +83,24 @@ core_ios:CONFIG += no_tests
 	SUBDIRS += standardtester
 }
 
-core_and_multimedia {
 	
 desktop {
-message(desktop)
+	message(desktop)
 
-SUBDIRS += \
-	hunspell \
-	ooxmlsignature \
-	documentscore \
-	documentscore_helper
+	SUBDIRS += \
+		hunspell \
+		ooxmlsignature \
+		documentscore \
+		documentscore_helper
 
-!core_mac {
-SUBDIRS += qtdocumentscore
-}
+	!core_mac {
+		SUBDIRS += qtdocumentscore
+	}
 
-!no_desktop_apps {
-core_windows:SUBDIRS += projicons
-SUBDIRS += desktopapp
-}
+	!no_desktop_apps {
+		core_windows:SUBDIRS += projicons
+		SUBDIRS += desktopapp
+	}
 
 }
 
@@ -270,9 +263,7 @@ desktop {
 		qtdocumentscore.file     = $$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/lib/qt_wrapper/qtascdocumentscore.pro
 		qtdocumentscore.makefile = $$ROOT_DIR/desktop-sdk/ChromiumBasedEditors/lib/qt_wrapper/Makefile.qtascdocumentscore$$PRO_SUFFIX
 	}
-		
-	core_and_multimedia {
-	}
+	
 	
 	!no_desktop_apps {
 		core_windows {
