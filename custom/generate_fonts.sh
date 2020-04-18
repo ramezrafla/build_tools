@@ -1,0 +1,3 @@
+#!/bin/bash
+DIR=/home/ubuntu/build_tools/out/linux_64/onlyoffice/documentserver
+LD_LIBRARY_PATH=$DIR/server/FileConverter/bin $DIR/server/tools/allfontsgen --input=$DIR/core-fonts --allfonts-web=$DIR/sdkjs/common/AllFonts.js  --allfonts=$DIR/server/FileConverter/bin/AllFonts.js --images=$DIR/sdkjs/common/Images  --selection=$DIR/server/FileConverter/bin/font_selection.bin --output-web=$DIR/fonts --use-system=false
